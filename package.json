@@ -1,0 +1,9 @@
+{
+  "name": "ghost-algolia",
+  "version": "0.0.1",
+  "dependencies": {
+    "algoliasearch": "^3.24.0",
+    "ghost-app": "0.0.2",
+    "html2plaintext": "^1.1.1"
+  }
+}

@@ -1,0 +1,14 @@
+diff --git a/core/server/models/post.js b/core/server/models/post.js
+index 4576534..d4862f7 100644
+--- a/core/server/models/post.js
++++ b/core/server/models/post.js
+@@ -15,6 +15,9 @@ var _               = require('lodash'),
+     Post,
+     Posts;
+
++    ghostAlgolia    = require('../../../content/apps/ghost-algolia'),
++    ghostAlgolia.registerEvents(events);
++
+ Post = ghostBookshelf.Model.extend({
+
+     tableName: 'posts',

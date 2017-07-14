@@ -1,0 +1,1 @@
+# Ghost / Algolia integration
