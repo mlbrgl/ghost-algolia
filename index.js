@@ -19,7 +19,7 @@
 
 var algoliasearch = require('algoliasearch'),
     h2p = require('html2plaintext'),
-    config = require('../../../core/server/config');
+    config = require('../../../current/core/server/config');
 
 var GhostAlgolia = Object.create(null),
     algolia = config.get('algolia');
