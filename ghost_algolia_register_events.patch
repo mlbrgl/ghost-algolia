@@ -1,13 +1,17 @@
 diff --git a/current/core/server/models/post.orig.js b/current/core/server/models/post.js
-index 4576534..7b848d5 100644
+index 4576534..69bc016 100644
 --- a/current/core/server/models/post.orig.js
 +++ b/current/core/server/models/post.js
-@@ -15,6 +15,9 @@ var _               = require('lodash'),
+@@ -15,6 +15,13 @@ var _               = require('lodash'),
      Post,
      Posts;
  
++// -- BEGIN ghost-algolia --
++// Temporary hack added by ghost-algolia 
++// (https://github.com/mlbrgl/ghost-algolia)
 +var ghostAlgolia    = require(config.getContentPath('apps') + 'ghost-algolia');
 +ghostAlgolia.registerEvents(events);
++// -- END ghost-algolia --
 +
  Post = ghostBookshelf.Model.extend({
  
