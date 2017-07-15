@@ -16,7 +16,13 @@ This app only deals with the indexing side of things. Adding the actual search w
 
 1. Place the app code in the `[PATH_TO_GHOST_ROOT]/content/apps` folder so that the index.js file can be found at this location: `[PATH_TO_GHOST_ROOT]/content/apps/ghost-algolia/index.js`.
 
-2. Install dependencies by running `yarn`(recommended) or `npm install` in the app folder.
+   You may use the following command from the ghost root:
+
+   ```shell
+   git clone git@github.com:mlbrgl/ghost-algolia.git content/apps/ghost-algolia
+   ```
+
+2. Install dependencies by running `yarn`(recommended) or `npm install` in the `ghost-algolia` folder.
 
 3. Locate your ghost config file (config.production.json if ghost is running in production mode) and append the algolia object to it:
 
