@@ -54,6 +54,9 @@ Triggering indexing is transparent once the app is installed and happens on the 
 - unpublishing a post (remove a record)
 - deleting a post (remove a record)
 
+# Compatibility
+Tested against Ghost 1.x.x releases.
+
 # Roadmap
 
 - Switching to [fragment indexing](https://github.com/mlbrgl/kirby-algolia#principle).
