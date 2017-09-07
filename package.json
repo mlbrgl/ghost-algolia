@@ -4,6 +4,8 @@
   "dependencies": {
     "algoliasearch": "^3.24.0",
     "ghost-app": "0.0.2",
-    "html2plaintext": "^1.1.1"
+    "markdown-to-ast": "^4.0.0",
+    "remove-markdown": "^0.2.2",
+    "slug": "^0.9.1"
   }
 }

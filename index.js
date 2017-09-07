@@ -17,12 +17,11 @@
 //
 // module.exports = GhostAlgolia;
 
-var algoliasearch = require('algoliasearch'),
-    h2p = require('html2plaintext'),
-    config = require('../../../current/core/server/config');
+const converter = require('../../../current/core/server/utils/markdown-converter'),
+      indexFactory = require('./lib/indexFactory'),
+      parserFactory = require('./lib/parserFactory');
 
-var GhostAlgolia = Object.create(null),
-    algolia = config.get('algolia');
+const GhostAlgolia = {};
 
 
 /*
@@ -30,69 +29,46 @@ var GhostAlgolia = Object.create(null),
  */
 GhostAlgolia.registerEvents = function registerEvents(events) {
 
-  if(algolia.applicationID && algolia.apiKey && algolia.index) {
+  // React to post being published (from unpublished)
+  events.on('post.published', function(post) {
+    let index = indexFactory();
+    if(index.connect() && parserFactory().parse(post, index)) {
+      index.add(post)
+      .then(() => { console.log('GhostAlgolia: post "' + post.attributes.title + '" has been added to the index.'); })
+      .catch((err) => console.log(err));
+    };
+  });
 
-    var client = algoliasearch(algolia.applicationID, algolia.apiKey),
-    index = client.initIndex(algolia.index);
-
-    // React to post being edited in a published state
-    events.on('post.published.edited', function(post) {
-      index.addObject(buildPostObject(post), function(err, content) {
-        if(!err) {
-          console.log('GhostAlgolia: post "' + post.attributes.title + '" has been updated in the index.');
-        }
-      });
-    });
-
-    // React to post being published (from unpublished)
-    events.on('post.published', function(post) {
-      index.addObject(buildPostObject(post), function(err, content) {
-        if(!err) {
-          console.log('GhostAlgolia: post "' + post.attributes.title + '" has been added to the index.');
-        }
-      });
-    });
-
-    // React to post being unpublished (from published)
-    events.on('post.unpublished', function(post) {
-      index.deleteObject(post.attributes.uuid, function(err) {
-        if (!err) {
-          console.log('GhostAlgolia: post "' + post.attributes.title + '" has been removed from the index.');
-        }
-      });
-    });
-
-    // React to post being deleted
-    events.on('post.deleted', function(post) {
-      // No need to try and remove a draft from the index as drafts are not sent
-      // for indexing in the first place.
-      if(post.attributes.status !== 'draft') {
-        index.deleteObject(post.attributes.uuid, function(err) {
-          if (!err) {
-            console.log('GhostAlgolia: post "' + post.attributes.title + '" has been removed from the index.');
-          }
-        });
+  // React to post being edited in a published state
+  events.on('post.published.edited', function(post) {
+    let index = indexFactory();
+    if(index.connect()) {
+      let promisePublishedEdited;
+      if(parserFactory().parse(post, index)) {
+        promisePublishedEdited = index.delete(post)
+                                 .then(() => { index.add(post) });
+      } else {
+        promisePublishedEdited = index.delete(post);
       }
-    });
-  } else {
-    console.log('Check Algolia configuration options.')
-  }
-}
+      promisePublishedEdited
+      .then(() => { console.log('GhostAlgolia: post "' + post.attributes.title + '" has been updated in the index.'); })
+      .catch((err) => console.log(err));
+    };
+  });
 
-/*
- * Parse the post object and only expose certain attributes to Algolia.
- */
-function buildPostObject(post) {
-  var postToIndex = Object.create(null);
+  // React to post being unpublished (from published)
+  // Also handles deletion of published posts as the unpublished event is emitted
+  // before the deleted event which becomes redundant. Deletion of unpublished posts
+  // is of no concern as they never made it to the index.
+  events.on('post.unpublished', function(post) {
+    let index = indexFactory();
+    if(index.connect()) {
+      index.delete(post)
+      .then(() => { console.log('GhostAlgolia: post "' + post.attributes.title + '" has been removed from the index.'); })
+      .catch((err) => console.log(err));
+    };
+  });
 
-  postToIndex.objectID = post.attributes.uuid;
-  postToIndex.title = post.attributes.title;
-  postToIndex.slug = post.attributes.slug;
-  // @TODO parse plaintext attribute in order to index paragraphs
-  // (vs cramming the entire content into one record)
-  postToIndex.text = h2p(post.attributes.html);
-
-  return postToIndex;
 }
 
 module.exports = GhostAlgolia;
