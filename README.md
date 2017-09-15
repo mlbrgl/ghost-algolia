@@ -84,6 +84,8 @@ Finally, add `importance` as a custom ranking attribute in the ranking tab under
        "index": "[YOUR_ALGOLIA_INDEX]"
      }
    ```
+   **Important note on bulk indexing**: setting `active` to true triggers both real-time indexing (when an CUD action is carried out on a post) and bulk indexing, which consists in indexing all published posts in one go. After installing this module, Ghost will automatically check your Algolia index during its next restart. If the index is empty, it will start sending fragments of all published posts (including the first few default posts coming with a fresh Ghost install). You might want to remove or unpublish those posts to save on operations.
+
 5. Apply the `ghost_algolia_register_events.patch` patch found in the app download by running the following command from the ghost root:
 
    ```shell
@@ -95,6 +97,8 @@ Finally, add `importance` as a custom ranking attribute in the ranking tab under
 
 # Usage
 
+##Real-time indexing
+
 Triggering indexing is transparent once the app is installed and happens on the following ghost panel operations:
 
 - publishing a new post (add a new record)
@@ -102,7 +106,16 @@ Triggering indexing is transparent once the app is installed and happens on the 
 - unpublishing a post (remove a record)
 - deleting a post (remove a record)
 
+**Cost**: as many operations as fragments in the current post
+
+## Bulk indexing
+
+Bulk indexing happens automatically when Ghost is started, provided your Algolia index is empty and `active` is `true`  (See Installation, #4 for more information).
+
+**Cost**: 1 Algolia operation per restart + as many operations as fragments in all published posts
+
 # Compatibility
+
 Tested against Ghost 1.x.x releases.
 
 # Roadmap
