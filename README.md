@@ -121,5 +121,5 @@ Tested against Ghost 1.x.x releases.
 # Roadmap
 
 - ~~Switching to [fragment indexing](https://github.com/mlbrgl/kirby-algolia#principle).~~
-- Bulk indexing existing articles.
+- ~~Bulk indexing existing articles.~~
 - Upgrade to App API when available, to remove core hacking and simplify the installation process.
