@@ -39,7 +39,7 @@ line
 - `id`: the ID of the fragment being indexed (e.g. my-new-blog-post#card-markdown--My-first-paragraph--1)
 - `importance`: an integer reprensenting how deep in the article structure a fragment is located (e.g. 1). The deeper the less relevant.
 - `post_title`: the title of the post being indexed (e.g. My new blog post)
-- `post_published_at` : the published date of the post (e.g. 2017-09-03T19:14:03.000Z)
+- `post_published_at`: the published date of the post (e.g. 2017-09-03T19:14:03.000Z)
 - `content`: the content of the fragment being indexed (e.g. The content of the first paragraph)
 
 # What it does not do
