@@ -90,7 +90,7 @@ Finally, add `importance` as a custom ranking attribute in the ranking tab under
 5. Apply the `ghost_algolia_register_events.patch` patch found in the app download by running the following command from the ghost root:
 
    ```shell
-   patch -p1 < ./content/apps/ghost-algolia/ghost_algolia_register_events.patch
+   patch -p1 < ./content/apps/ghost-algolia/ghost_algolia_init.patch
    ```
 
 6. Restart ghost
@@ -118,6 +118,7 @@ Bulk indexing happens automatically when Ghost is started, provided your Algolia
 # Compatibility
 
 Tested against Ghost 1.x.x releases.
+The tagged releases of this repository using the SemVer format (x.x.x) are compatible with the same tagged releases in Ghost's repository (e.g. 1.20.0 here is compatible with Ghost 1.20.0).
 
 # Roadmap
 

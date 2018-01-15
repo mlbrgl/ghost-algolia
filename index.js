@@ -17,14 +17,14 @@
 //
 // module.exports = GhostAlgolia;
 
-const converter = require('../../../current/core/server/utils/markdown-converter'),
+const converter = require('../../../current/core/server/lib/mobiledoc/converters/markdown-converter'),
       client = require('../../../current/core/server/models').Client,
       indexFactory = require('./lib/indexFactory'),
       parserFactory = require('./lib/parserFactory');
 
 const GhostAlgolia = {
-  init: (events, config, utils) => {
-    bulkIndex(events, config, utils);
+  init: (events, config, urlUtils) => {
+    bulkIndex(events, config, urlUtils);
     registerEvents(events, config);
   }
 };
@@ -32,12 +32,12 @@ const GhostAlgolia = {
 /*
  * Index all published posts at server start if Algolia indexing activated in config
  */
-function bulkIndex(events, config, utils){
+function bulkIndex(events, config, urlUtils){
 
   // Emitted in ghost-server.js
   events.on('server:start', function(){
     client.findOne({slug: 'ghost-frontend'}, {context: {internal: true}})
-    .then((client) => getContent(utils.url.urlFor('api', true) + 'posts/?formats=mobiledoc&client_id=ghost-frontend&client_secret=' + client.attributes.secret))
+    .then((client) => getContent(urlUtils.urlFor('api', true) + 'posts/?formats=mobiledoc&client_id=ghost-frontend&client_secret=' + client.attributes.secret))
     .then((data) => {
       let posts = JSON.parse(data).posts;
       if(posts.length > 0) {
