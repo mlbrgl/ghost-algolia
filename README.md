@@ -125,3 +125,8 @@ The tagged releases of this repository using the SemVer format (x.x.x) are compa
 - ~~Switching to [fragment indexing](https://github.com/mlbrgl/kirby-algolia#principle).~~
 - ~~Bulk indexing existing articles.~~
 - Upgrade to App API when available, to remove core hacking and simplify the installation process.
+
+# Used by
+- https://blog.eutelmed.com
+
+*Give me a shout if you are using the app on production, I'll add it to the list.*
