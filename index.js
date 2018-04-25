@@ -35,7 +35,7 @@ const GhostAlgolia = {
 function bulkIndex(events, config, urlUtils){
 
   // Emitted in ghost-server.js
-  events.on('server:start', function(){
+  events.on('server.start', function(){
     client.findOne({slug: 'ghost-frontend'}, {context: {internal: true}})
     .then((client) => getContent(urlUtils.urlFor('api', true) + 'posts/?formats=mobiledoc&client_id=ghost-frontend&client_secret=' + client.attributes.secret))
     .then((data) => {
