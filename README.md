@@ -118,7 +118,7 @@ Bulk indexing happens automatically when Ghost is started, provided your Algolia
 # Compatibility
 
 Tested against Ghost 1.x.x releases.
-The tagged releases of this repository using the SemVer format (x.x.x) are compatible with the same tagged releases in Ghost's repository (e.g. 1.20.0 here is compatible with Ghost 1.20.0).
+The tagged releases of this repository using the SemVer format (x.x.x) are compatible with the same tagged releases in Ghost's repository (e.g. 1.22.4 here is compatible with Ghost 1.22.4).
 
 # Roadmap
 
