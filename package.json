@@ -1,10 +1,28 @@
 {
   "name": "ghost-algolia",
-  "version": "0.0.1",
+  "version": "1.22.5+wip",
+  "description": "Provides integration between Ghost (CMS) and Algolia (search as a service)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlbrgl/ghost-algolia.git"
+  },
+  "keywords": [
+    "ghost",
+    "algolia"
+  ],
+  "author": "Matthieu Bergel <hello@matthieubergel.org> (https://www.matthieubergel.org)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mlbrgl/ghost-algolia/issues"
+  },
+  "homepage": "https://github.com/mlbrgl/ghost-algolia#readme",
   "dependencies": {
-    "algoliasearch": "^3.24.0",
-    "ghost-app": "0.0.2",
-    "markdown-to-ast": "^4.0.0",
+    "algoliasearch": "^3.27.0",
+    "markdown-to-ast": "^6.0.3",
     "remove-markdown": "^0.2.2",
     "slug": "^0.9.1"
   }

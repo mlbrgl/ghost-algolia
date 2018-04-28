@@ -2,17 +2,17 @@
 # yarn lockfile v1
 
 
-"@textlint/ast-node-types@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@textlint/ast-node-types/-/ast-node-types-1.1.2.tgz#58bc95a6826b84eb1f1671be5921aa243409fb31"
+"@textlint/ast-node-types@^4.0.0":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@textlint/ast-node-types/-/ast-node-types-4.0.2.tgz#5386a15187798efb48eb71fa1cbf6ca2770b206a"
 
 agentkeepalive@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/agentkeepalive/-/agentkeepalive-2.2.0.tgz#c5d1bd4b129008f1163f236f86e5faea2026e2ef"
 
-algoliasearch@^3.24.0:
-  version "3.24.3"
-  resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.24.3.tgz#0b5da4242baa2e4bf9359bd20c47266ec0e501f4"
+algoliasearch@^3.27.0:
+  version "3.27.0"
+  resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.27.0.tgz#675b7f2d186e5785a1553369b15d47b53d4efb31"
   dependencies:
     agentkeepalive "^2.2.0"
     debug "^2.6.8"
@@ -107,13 +107,6 @@ function-bind@^1.0.2:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.0.tgz#16176714c801798e4e8f2cf7f7529467bb4a5771"
 
-ghost-app@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/ghost-app/-/ghost-app-0.0.2.tgz#b4682fc9b2f2b4e1841d0d67a81996c632e723b3"
-  dependencies:
-    lodash "2.4.1"
-    when "~2.5.1"
-
 global@^4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/global/-/global-4.3.2.tgz#e76989268a6c74c38908b1305b10fc0e394e9d0f"
@@ -178,10 +171,6 @@ load-script@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
 
-lodash@2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-2.4.1.tgz#5b7723034dda4d262e5a46fb2c58d7cc22f71420"
-
 longest-streak@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/longest-streak/-/longest-streak-2.0.1.tgz#42d291b5411e40365c00e63193497e2247316e35"
@@ -194,11 +183,11 @@ markdown-table@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/markdown-table/-/markdown-table-1.1.1.tgz#4b3dd3a133d1518b8ef0dbc709bf2a1b4824bc8c"
 
-markdown-to-ast@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/markdown-to-ast/-/markdown-to-ast-4.0.0.tgz#37d4b0d9d84b19c8dd713e56eaf69dcc7ce2e6c3"
+markdown-to-ast@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/markdown-to-ast/-/markdown-to-ast-6.0.3.tgz#c939442fee0e2074975cd7049ce8103d7be8f021"
   dependencies:
-    "@textlint/ast-node-types" "^1.1.2"
+    "@textlint/ast-node-types" "^4.0.0"
     debug "^2.1.3"
     remark "^7.0.1"
     structured-source "^3.0.2"
@@ -423,10 +412,6 @@ vfile@^2.0.0:
     is-buffer "^1.1.4"
     replace-ext "1.0.0"
     unist-util-stringify-position "^1.0.0"
-
-when@~2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/when/-/when-2.5.1.tgz#1109685075dc09643109287e6363ae5d73ea7d53"
 
 x-is-function@^1.0.4:
   version "1.0.4"
