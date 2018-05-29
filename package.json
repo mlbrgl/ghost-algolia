@@ -1,6 +1,6 @@
 {
   "name": "ghost-algolia",
-  "version": "1.22.5+wip",
+  "version": "3.1.0",
   "description": "Provides integration between Ghost (CMS) and Algolia (search as a service)",
   "main": "index.js",
   "scripts": {
