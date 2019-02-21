@@ -24,6 +24,6 @@
     "algoliasearch": "^3.27.0",
     "markdown-to-ast": "^6.0.3",
     "remove-markdown": "^0.3.0",
-    "slug": "^0.9.1"
+    "slug": "^1.0.0"
   }
 }
