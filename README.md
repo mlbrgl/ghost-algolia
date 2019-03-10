@@ -4,6 +4,9 @@ This app enables [Ghost](https://ghost.org) sites owners to index their content 
 
 *Disclaimer: Ghost apps are not mature as of July 2017 (https://github.com/TryGhost/Ghost/wiki/Apps-Getting-Started-for-Ghost-Devs). As a result, this app is merely using the "app" denomination to set its intention but does not leverage any part of the burgeoning App framework yet. Hooking into Ghost thus requires patching core for now, a workaround which will be removed as soon as the App framework is rolled out and makes this step unnecessary.*
 
+🏃 If you are looking for a quick and easy way to enable indexing from a Ghost blog (using Zapier): https://discourse.algolia.com/t/how-to-install-algolia-for-ghost-blogging-platform/1201/8. 
+Please check the limitations, as this might not be suitable for your use case.
+
 # What it does
 
 When you work on a story, and publish it, the content of that story is sent to Algolia's indexing engine. Any change you make to that story or its state afterwards (updating content, deleting the story or unpublishing it) is automatically synchronised with your index.
@@ -124,8 +127,3 @@ Check the last release (on the [releases](https://github.com/mlbrgl/ghost-algoli
 - ~~Switching to [fragment indexing](https://github.com/mlbrgl/kirby-algolia#principle).~~
 - ~~Bulk indexing existing articles.~~
 - Upgrade to App API when available, to remove core hacking and simplify the installation process.
-
-# Used by
-- https://blog.eutelmed.com
-
-*Give me a shout if you are using the app on production, I'll add it to the list.*
