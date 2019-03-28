@@ -2,3 +2,9 @@
   command = "yarn build"
   publish = "build/site"
   functions = "build/functions"
+
+[template.environment]
+  ALGOLIA_ACTIVE = "TRUE or FALSE. Set to TRUE to trigger indexing."
+  ALGOLIA_APP_ID="The Algolia application ID"
+  ALGOLIA_API_KEY="An Algolia API key with the following set of operations: search, addObject, deleteObject, deleteIndex, listIndexes"
+  ALGOLIA_INDEX="The Algolia index"

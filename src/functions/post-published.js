@@ -4,7 +4,7 @@ const parserFactory = require('./lib/parserFactory')
 exports.handler = function(event, context, callback) {
 
   const algoliaSettings = {
-    active: process.env.ALGOLIA_ACTIVE === 'true' ? true : false,
+    active: process.env.ALGOLIA_ACTIVE === 'TRUE' ? true : false,
     applicationID: process.env.ALGOLIA_APP_ID,
     apiKey: process.env.ALGOLIA_API_KEY,
     index: process.env.ALGOLIA_INDEX
