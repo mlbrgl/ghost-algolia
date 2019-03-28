@@ -1,11 +1,6 @@
 # Ghost / Algolia integration
 
-This app enables [Ghost](https://ghost.org) sites owners to index their content through [Algolia](https://www.algolia.com).
-
-*Disclaimer: Ghost apps are not mature as of July 2017 (https://github.com/TryGhost/Ghost/wiki/Apps-Getting-Started-for-Ghost-Devs). As a result, this app is merely using the "app" denomination to set its intention but does not leverage any part of the burgeoning App framework yet. Hooking into Ghost thus requires patching core for now, a workaround which will be removed as soon as the App framework is rolled out and makes this step unnecessary.*
-
-🏃 If you are looking for a quick and easy way to enable indexing from a Ghost blog (using Zapier): https://discourse.algolia.com/t/how-to-install-algolia-for-ghost-blogging-platform/1201/8. 
-Please check the limitations, as this might not be suitable for your use case.
+Enables [Ghost](https://ghost.org) sites owners to index their content through [Algolia](https://www.algolia.com).
 
 # What it does
 
@@ -51,17 +46,9 @@ This app only deals with the indexing side of things. Adding the actual search w
 
 # Installation
 
-1. Place the app code in the `[PATH_TO_GHOST_ROOT]/content/apps` folder so that the index.js file can be found at this location: `[PATH_TO_GHOST_ROOT]/content/apps/ghost-algolia/index.js`.
+1. Create free accounts on both [Github](https://github.com/) and [Netlify](https://www.netlify.com/).
 
-   You may use the following command from the ghost root:
-
-   ```shell
-   git clone git@github.com:mlbrgl/ghost-algolia.git content/apps/ghost-algolia
-   ```
-
-2. Install dependencies by running `yarn`(recommended) or `npm install` in the `ghost-algolia` folder.
-
-3. Configure Algolia's index
+2. Configure Algolia's index
 
 Create a new API key on Algolia's dashboard. You want to make sure that the generated key has the following authorizations on your index:
 - Search (search)
@@ -78,45 +65,19 @@ Ignore any warnings about the attributes not being found in a sample of your rec
 
 Finally, add `importance` as a custom ranking attribute in the ranking tab under the "Ranking Formula & Custom Ranking" section. This will allow the tie-break algorithm to give preference to higher fragments in the document structure. In other words, h1 tags will rank higher than h2 tags if they otherwise have the same textual score.
 
-4. Locate your ghost config file (config.production.json if ghost is running in production mode) and append the algolia object to it:
-
-   ```json
-   "algolia": {
-       "active": true,
-       "applicationID": "[YOUR_ALGOLIA_APP_ID]",
-       "apiKey": "[YOUR_ALGOLIA_API_KEY]",
-       "index": "[YOUR_ALGOLIA_INDEX]"
-     }
-   ```
-   **Important note on bulk indexing**: setting `active` to `true` triggers both real-time indexing (when an CUD action is carried out on a post) and bulk indexing, which consists in indexing all published posts in one go. After installing this module, Ghost will automatically check your Algolia index during its next restart. If the index is empty, it will start sending fragments of all published posts (including the first few default posts coming with a fresh Ghost install). You might want to remove or unpublish those posts to save on operations.
-
-5. Apply the `ghost_algolia_init.patch` patch found in the app download by running the following command from the ghost root:
-
-   ```shell
-   patch -p1 < ./content/apps/ghost-algolia/ghost_algolia_init.patch
-   ```
-
-6. Restart ghost
-
+3. Fork https://github.com/mlbrgl/ghost-algolia and deploy to Netlify through the Github integration. Use the `webhooks`branch as the production branch. 
+   *Note: this process will be partly automised through the "Deploy to netlify" button once on the master branch* [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/mlbrgl/ghost-algolia)
+4. On Ghost's admin panel, create a new custom integration and the following webhook:
+- Name: Post published, Event: Post published, target URL: the endpoint of the post-published function, found on Netlify's admin panel (https://YOUR-SITE-ID.netlify.com/.netlify/functions/post-published)
 
 # Usage
 
 ## Real-time indexing
 
 Triggering indexing is transparent once the app is installed and happens on the following ghost panel operations:
-
 - publishing a new post (add a new record)
-- updating a published post (update an existing record)
-- unpublishing a post (remove a record)
-- deleting a post (remove a record)
 
 **Cost**: as many operations as fragments in the current post
-
-## Bulk indexing
-
-Bulk indexing happens automatically when Ghost is started, provided your Algolia index is empty and `active` is `true`  (See Installation, #4 for more information).
-
-**Cost**: 1 Algolia operation per restart + as many operations as fragments in all published posts
 
 # Compatibility
 
@@ -124,6 +85,12 @@ Check the last release (on the [releases](https://github.com/mlbrgl/ghost-algoli
 
 # Roadmap
 
-- ~~Switching to [fragment indexing](https://github.com/mlbrgl/kirby-algolia#principle).~~
-- ~~Bulk indexing existing articles.~~
-- Upgrade to App API when available, to remove core hacking and simplify the installation process.
+- event: updating a published post (update an existing record)
+- event: unpublishing a post (remove a record)
+- event: deleting a post (remove a record)
+- bulk indexing
+
+# Alternative
+
+For a similar process using Zapier: https://discourse.algolia.com/t/how-to-install-algolia-for-ghost-blogging-platform/1201/8. 
+Please check the limitations, as this might not be suitable for your use case.*
