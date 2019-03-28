@@ -3,9 +3,6 @@
   "version": "3.1.0",
   "description": "Provides integration between Ghost (CMS) and Algolia (search as a service)",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mlbrgl/ghost-algolia.git"
@@ -21,9 +18,17 @@
   },
   "homepage": "https://github.com/mlbrgl/ghost-algolia#readme",
   "dependencies": {
-    "algoliasearch": "^3.27.0",
-    "markdown-to-ast": "^6.0.3",
-    "remove-markdown": "^0.3.0",
-    "slug": "^0.9.1"
+    "algoliasearch": "^3.32.1",
+    "parse5": "^5.1.0",
+    "slug": "^1.0.0",
+    "striptags": "^3.1.1"
+  },
+  "devDependencies": {
+    "dotenv-webpack": "^1.7.0",
+    "netlify-lambda": "^1.4.3"
+  },
+  "scripts": {
+    "serve": "netlify-lambda serve --config ./webpack.functions.js src/functions ",
+    "build": "mkdir -p build/site && netlify-lambda build src/functions"
   }
 }

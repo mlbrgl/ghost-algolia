@@ -1,7 +1,6 @@
 const algoliaSearch = require('algoliasearch');
 
-const indexFactory = (config) => {
-  const algoliaSettings = config.get('algolia');
+const indexFactory = (algoliaSettings) => {
   let _fragments = [];
   let index;
 
@@ -33,6 +32,7 @@ const indexFactory = (config) => {
       return index.addObjects(_fragments);
     },
     delete: (post) => {
+      //TODO
       return index.deleteByQuery(post.attributes.uuid, {restrictSearchableAttributes: 'post_uuid'});
     },
     getFragments: () => {
