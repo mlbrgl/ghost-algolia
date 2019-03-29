@@ -2,6 +2,8 @@
 
 Enables [Ghost](https://ghost.org) sites owners to index their content through [Algolia](https://www.algolia.com).
 
+:radioactive: :mushroom: **The master branch does not contain production-ready code at that stage. Please use the released versions instead.**
+
 # What it does
 
 When you work on a story, and publish it, the content of that story is sent to Algolia's indexing engine. Any change you make to that story or its state afterwards (updating content, deleting the story or unpublishing it) is automatically synchronised with your index.
