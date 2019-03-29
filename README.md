@@ -67,8 +67,7 @@ Ignore any warnings about the attributes not being found in a sample of your rec
 
 Finally, add `importance` as a custom ranking attribute in the ranking tab under the "Ranking Formula & Custom Ranking" section. This will allow the tie-break algorithm to give preference to higher fragments in the document structure. In other words, h1 tags will rank higher than h2 tags if they otherwise have the same textual score.
 
-3. Fork https://github.com/mlbrgl/ghost-algolia and deploy to Netlify through the Github integration. Use the `webhooks`branch as the production branch. 
-   *Note: this process will be partly automised through the "Deploy to netlify" button once on the master branch* [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/mlbrgl/ghost-algolia)
+3. [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/mlbrgl/ghost-algolia)
 4. On Ghost's admin panel, create a new custom integration and the following webhook:
 - Name: Post published, Event: Post published, target URL: the endpoint of the post-published function, found on Netlify's admin panel (https://YOUR-SITE-ID.netlify.com/.netlify/functions/post-published)
 
