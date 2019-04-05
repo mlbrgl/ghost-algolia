@@ -44,7 +44,7 @@ line
 
 # What it does not do
 
-This app only deals with the indexing side of things. Adding the actual search widget is not part of the scope at this point. A good option to look into is [InstantSearch.js](https://community.algolia.com/instantsearch.js/v2/).
+This app only deals with the indexing side of things. Adding the actual search widget is not part of the scope at this point. A good option to look into is [InstantSearch.js](https://www.algolia.com/doc/guides/building-search-ui/what-is-instantsearch/js/).
 
 # Installation
 
