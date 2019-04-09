@@ -1,7 +1,7 @@
-const indexFactory = require('./lib/indexFactory')
-const parserFactory = require('./lib/parserFactory')
+import indexFactory from './lib/indexFactory';
+import parserFactory from './lib/parserFactory';
 
-exports.handler = function(event, context, callback) {
+export function handler(event, context, callback) {
 
   const algoliaSettings = {
     active: process.env.ALGOLIA_ACTIVE === 'TRUE' ? true : false,

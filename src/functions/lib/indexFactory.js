@@ -1,4 +1,4 @@
-const algoliaSearch = require('algoliasearch');
+import algoliaSearch from 'algoliasearch';
 
 const indexFactory = (algoliaSettings) => {
   let _fragments = [];
@@ -44,4 +44,4 @@ const indexFactory = (algoliaSettings) => {
   }
 }
 
-module.exports = indexFactory;
+export default indexFactory;

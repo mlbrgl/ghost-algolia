@@ -1,6 +1,6 @@
-const parse5 = require('parse5')
-const striptags = require('striptags')
-const slug = require('slug')
+import { parseFragment } from 'parse5';
+import striptags from 'striptags';
+import slug from 'slug';
 
 const parserFactory = () => {
   return {
@@ -11,7 +11,7 @@ const parserFactory = () => {
       let headingCount = 0
 
       const cleanhtml = striptags(post.html, ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
-      const nodes = parse5.parseFragment(cleanhtml).childNodes
+      const nodes = parseFragment(cleanhtml).childNodes
 
       if(nodes.length !== 0) { //can that be true even with an empty doc?
         // Set first hypothetical headless fragment attributes.
@@ -64,4 +64,4 @@ const getHeadingLevel = (nodeName) => {
   return nodeName.charAt(1)
 }
 
-module.exports = parserFactory;
+export default parserFactory;
