@@ -1,7 +1,7 @@
 import indexFactory from './lib/indexFactory';
 import parserFactory from './lib/parserFactory';
 
-const handler = (event, context, callback) => {
+exports.handler = (event, context, callback) => {
   const algoliaSettings = {
     active: process.env.ALGOLIA_ACTIVE === 'TRUE',
     applicationID: process.env.ALGOLIA_APP_ID,
@@ -26,5 +26,3 @@ const handler = (event, context, callback) => {
       });
   }
 };
-
-export default handler;
