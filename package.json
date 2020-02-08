@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/mlbrgl/ghost-algolia#readme",
   "dependencies": {
-    "algoliasearch": "^3.32.1",
+    "algoliasearch": "^4.0.0",
     "parse5": "^5.1.0",
     "slug": "^1.0.0",
     "striptags": "^3.1.1"
