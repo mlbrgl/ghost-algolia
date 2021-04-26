@@ -28,7 +28,7 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "netlify-lambda": "^1.4.3"
+    "netlify-lambda": "2.0.5"
   },
   "scripts": {
     "serve": "netlify-lambda serve --config ./webpack.functions.js src/functions ",
