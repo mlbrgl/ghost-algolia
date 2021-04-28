@@ -1,3 +1,7 @@
+_Apr 2021: archiving as I am not planning on working on this in the foreseeable future._
+
+---
+
 # Ghost / Algolia integration
 
 Enables [Ghost](https://ghost.org) sites owners to index their content through [Algolia](https://www.algolia.com).
